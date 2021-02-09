@@ -69,5 +69,113 @@ function renderRides(ridesArray) {
 
 window.addEventListener('DOMContentLoaded', function() {
   // YOUR CODE
+
+  let allRides = document.querySelector('#all-filter')
+  allRides.addEventListener('click', async function(event){
+    event.preventDefault()
+    document.querySelector('#noober-x-filter').classList.remove('bg-blue-200')
+    document.querySelector('#noober-xl-filter').classList.remove('bg-blue-200')
+    document.querySelector('#all-filter').classList.remove('bg-blue-200')
+    document.querySelector('#noober-pool-filter').classList.remove('bg-blue-200')
+    document.querySelector('#noober-purple-filter').classList.remove('bg-purple-200')
+    document.querySelector('#all-filter').classList.add('bg-blue-200')
+    document.querySelector('.rides').innerHTML = ''
+    document.querySelector('#all-filter')
+    let response = await fetch(`https://kiei451.com/api/rides.json`)
+    let json = await response.json()
+    renderRides(json)
+
+  })
+  let nooberPool = document.querySelector('#noober-pool-filter')
+    nooberPool.addEventListener('click', async function(event){
+    event.preventDefault()
+    document.querySelector('#noober-x-filter').classList.remove('bg-blue-200')
+    document.querySelector('#noober-xl-filter').classList.remove('bg-blue-200')
+    document.querySelector('#all-filter').classList.remove('bg-blue-200')
+    document.querySelector('#noober-pool-filter').classList.remove('bg-blue-200')
+    document.querySelector('#noober-purple-filter').classList.remove('bg-purple-200')
+    document.querySelector('#noober-pool-filter').classList.add('bg-blue-200')
+    document.querySelector('.rides').innerHTML = ''
+    let response = await fetch(`https://kiei451.com/api/rides.json`)
+    let json = await response.json()
+    let nooberPoolArray = []
+      for (let i = 0; i < json.length; i++) {
+      let ride =  levelOfService(json[i])
+      if(ride== "Noober Pool") {
+        nooberPoolArray.push(json[i])
+      }   
+    }
+    renderRides(nooberPoolArray)
+    
+  })
+  let nooberPurple = document.querySelector('#noober-purple-filter')
+    nooberPurple.addEventListener('click', async function(event){
+    event.preventDefault()
+    document.querySelector('#noober-x-filter').classList.remove('bg-blue-200')
+    document.querySelector('#noober-xl-filter').classList.remove('bg-blue-200')
+    document.querySelector('#all-filter').classList.remove('bg-blue-200')
+    document.querySelector('#noober-pool-filter').classList.remove('bg-blue-200')
+    document.querySelector('#noober-purple-filter').classList.remove('bg-purple-200')
+    document.querySelector('#noober-purple-filter').classList.add('bg-purple-200')
+    document.querySelector('.rides').innerHTML = ''
+    let response = await fetch(`https://kiei451.com/api/rides.json`)
+    let json = await response.json()
+    let nooberPurpleArray = []
+      for (let i = 0; i < json.length; i++) {
+      let ride =  levelOfService(json[i])
+      if(ride== "Noober Purple") {
+        nooberPurpleArray.push(json[i])
+      }   
+    }
+    renderRides(nooberPurpleArray)
+    
+  })
+  let nooberxl = document.querySelector('#noober-xl-filter')
+  nooberxl.addEventListener('click', async function(event){
+  event.preventDefault()
+  document.querySelector('#noober-x-filter').classList.remove('bg-blue-200')
+  document.querySelector('#noober-xl-filter').classList.remove('bg-blue-200')
+  document.querySelector('#all-filter').classList.remove('bg-blue-200')
+  document.querySelector('#noober-pool-filter').classList.remove('bg-blue-200')
+  document.querySelector('#noober-purple-filter').classList.remove('bg-purple-200')
+  document.querySelector('#noober-xl-filter').classList.add('bg-blue-200')
+  document.querySelector('.rides').innerHTML = ''
+  let response = await fetch(`https://kiei451.com/api/rides.json`)
+  let json = await response.json()
+  let nooberXLArray = []
+    for (let i = 0; i < json.length; i++) {
+    let ride =  levelOfService(json[i])
+    if(ride== "Noober XL") {
+      nooberXLArray.push(json[i])
+    }   
+  }
+  renderRides(nooberXLArray)
+  
+})
+let nooberX = document.querySelector('#noober-x-filter')
+  nooberX.addEventListener('click', async function(event){
+  event.preventDefault()
+  document.querySelector('#noober-x-filter').classList.remove('bg-blue-200')
+  document.querySelector('#noober-xl-filter').classList.remove('bg-blue-200')
+  document.querySelector('#all-filter').classList.remove('bg-blue-200')
+  document.querySelector('#noober-pool-filter').classList.remove('bg-blue-200')
+  document.querySelector('#noober-purple-filter').classList.remove('bg-purple-200')
+  document.querySelector('#noober-x-filter').classList.add('bg-blue-200')
+  document.querySelector('.rides').innerHTML = ''
+  let response = await fetch(`https://kiei451.com/api/rides.json`)
+  let json = await response.json()
+  let nooberXArray = []
+    for (let i = 0; i < json.length; i++) {
+    let ride =  levelOfService(json[i])
+    if(ride== "Noober X") {
+      nooberXArray.push(json[i])
+    }   
+  }
+  renderRides(nooberXArray)
+  
+})
+
+
+
 })
 
