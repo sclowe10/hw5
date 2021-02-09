@@ -73,6 +73,7 @@ window.addEventListener('DOMContentLoaded', function() {
   let allRides = document.querySelector('#all-filter')
   allRides.addEventListener('click', async function(event){
     event.preventDefault()
+    let clicked = 'All Rides Selected'
     document.querySelector('#noober-x-filter').classList.remove('bg-blue-200')
     document.querySelector('#noober-xl-filter').classList.remove('bg-blue-200')
     document.querySelector('#all-filter').classList.remove('bg-blue-200')
@@ -85,10 +86,13 @@ window.addEventListener('DOMContentLoaded', function() {
     let json = await response.json()
     renderRides(json)
 
+    console.log(clicked)
+
   })
   let nooberPool = document.querySelector('#noober-pool-filter')
     nooberPool.addEventListener('click', async function(event){
     event.preventDefault()
+    let clicked = 'Pool Rides Selected'
     document.querySelector('#noober-x-filter').classList.remove('bg-blue-200')
     document.querySelector('#noober-xl-filter').classList.remove('bg-blue-200')
     document.querySelector('#all-filter').classList.remove('bg-blue-200')
@@ -106,11 +110,12 @@ window.addEventListener('DOMContentLoaded', function() {
       }   
     }
     renderRides(nooberPoolArray)
-    
+    console.log(clicked)
   })
   let nooberPurple = document.querySelector('#noober-purple-filter')
     nooberPurple.addEventListener('click', async function(event){
     event.preventDefault()
+    let clicked = 'Purple Rides Selected'
     document.querySelector('#noober-x-filter').classList.remove('bg-blue-200')
     document.querySelector('#noober-xl-filter').classList.remove('bg-blue-200')
     document.querySelector('#all-filter').classList.remove('bg-blue-200')
@@ -128,11 +133,12 @@ window.addEventListener('DOMContentLoaded', function() {
       }   
     }
     renderRides(nooberPurpleArray)
-    
+    console.log(clicked)
   })
   let nooberxl = document.querySelector('#noober-xl-filter')
   nooberxl.addEventListener('click', async function(event){
   event.preventDefault()
+  let clicked = 'XL Rides Selected'
   document.querySelector('#noober-x-filter').classList.remove('bg-blue-200')
   document.querySelector('#noober-xl-filter').classList.remove('bg-blue-200')
   document.querySelector('#all-filter').classList.remove('bg-blue-200')
@@ -150,11 +156,12 @@ window.addEventListener('DOMContentLoaded', function() {
     }   
   }
   renderRides(nooberXLArray)
-  
+  console.log(clicked)
 })
 let nooberX = document.querySelector('#noober-x-filter')
   nooberX.addEventListener('click', async function(event){
   event.preventDefault()
+  let clicked = 'X Rides Selected'
   document.querySelector('#noober-x-filter').classList.remove('bg-blue-200')
   document.querySelector('#noober-xl-filter').classList.remove('bg-blue-200')
   document.querySelector('#all-filter').classList.remove('bg-blue-200')
@@ -172,7 +179,7 @@ let nooberX = document.querySelector('#noober-x-filter')
     }   
   }
   renderRides(nooberXArray)
-  
+  console.log(clicked)
 })
 
 
